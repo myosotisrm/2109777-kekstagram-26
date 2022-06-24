@@ -1,13 +1,15 @@
-function getRandomIntInclusive(min, max) {
+
+function getRandomInteger(min, max) {
+  const maxRange = max - min + 1;
   if (max > min && min >= 0) {
       min = Math.ceil(min);
       max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+      return Math.floor(Math.random() * maxRange + min); //Максимум и минимум включаются
   }
   return 'Используй другие числа';
 }
 
-console.log(getRandomIntInclusive(2, 4));
+console.log(getRandomInteger(2, 4));
 
 function countSimbols (message, maxSimbols) {
 if (message.length >= maxSimbols) {
