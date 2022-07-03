@@ -231,6 +231,87 @@
   <template id="messages">
     <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
+  <script>
 
+function getRandomPositiveInteger (a, b) {
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
+const NAMES = [
+  'Иван',
+  'Хуан Себастьян',
+  'Мария',
+  'Кристоф',
+  'Виктор',
+  'Юлия',
+  'Люпита',
+  'Вашингтон',
+];
+
+const Desc = [
+  'Люблю фоточки',
+  'Хочу на море',
+  'Котики - моя жизнь',
+  'Стакан наполовину полон',
+  'Стакан наоплоивну пуст',
+  'Пустышка этот стакан',
+  'Стакан не пустой',
+  'Жизнь продолжается',
+];
+
+const Messages = [
+  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше. Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
+  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
+];
+
+const Posts= 25;
+
+const IdArray = [
+  2,
+  5,
+];
+
+const createPost = () => {
+  const randomNameIndex = getRandomPositiveInteger(0, NAMES.length - 1);
+  const randomID = getRandomPositiveInteger(1, Posts);
+  const i = getRandomPositiveInteger(1, Posts);
+  const randomURL = `photos/` + i + `.jpg`;
+  const randomDescIndex = getRandomPositiveInteger(0, Desc.length - 1);
+  const randomLikes = getRandomPositiveInteger(15, 200);
+  const createComments = () => {
+  //   const randomCommentID = () => {
+  //     const newID = getRandomPositiveInteger(0, 100);
+  //     for (let j = 0; j < IdArray.length; j++) {
+  //       while (newID !== IdArray[j]) {
+  //         IdArray.push(newID);
+  //       }
+    const v = getRandomPositiveInteger(1, 6);
+    const randomAvatar = `img/avatar-` + v + `.svg`;
+    const randomMessIndex = getRandomPositiveInteger(0, Messages.length - 1);
+    return {
+      // id: randomCommentID(),
+      avatar: randomAvatar,
+      message: Messages[randomMessIndex],
+      name: NAMES[randomNameIndex],
+    }
+  return {
+    id: randomID,
+    url: randomURL,
+    description: Desc[randomDescIndex],
+    likes: randomLikes,
+    comments: createComments(),
+  };
+};
+};
+const similarPosts = Array.from({length: 25}, createPost);
+
+console.log(
+  similarPosts
+)
+
+</script>
 </body>
 </html>
