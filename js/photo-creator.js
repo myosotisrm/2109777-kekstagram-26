@@ -19,3 +19,5 @@ const createPhotos = (photo) => {
   });
   photos.appendChild(photosFragment);
 };
+
+
