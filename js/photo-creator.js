@@ -1,4 +1,4 @@
-import { getRandomPositiveInteger } from "./util";
+import { getRandomPositiveInteger } from './util';
 
 //Шаблон для фотографии случайного пользователя
 const photosTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -18,9 +18,13 @@ const createPhotos = (photo) => {
     photoElement.querySelector('.picture__comments').textContent = comments.length;
     photosFragment.appendChild(photoElement);
   });
+  return photosFragment;
+};
+
+const addPhotos = () => {
+  const mocPhotos = `photos/${getRandomPositiveInteger(1, 25)}.jpg`;
+  createPhotos(mocPhotos);
   photos.appendChild(photosFragment);
 };
 
-const mocPhotos = `photos/${getRandomPositiveInteger(1, 25)}.jpg`;
-
-createPhotos(mocPhotos);
+export { addPhotos };
