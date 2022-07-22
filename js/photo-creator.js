@@ -1,3 +1,4 @@
+import { getRandomPositiveInteger } from "./util";
 
 //Шаблон для фотографии случайного пользователя
 const photosTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -15,7 +16,7 @@ const createPhotos = (photo) => {
     photoElement.querySelector('.picture__img').src = url;
     photoElement.querySelector('.picture__likes').textContent = likes;
     photoElement.querySelector('.picture__comments').textContent = comments.length;
-    photosFragment.appendChild(pictureElement);
+    photosFragment.appendChild(photoElement);
   });
   photos.appendChild(photosFragment);
 };
