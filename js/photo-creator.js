@@ -20,4 +20,6 @@ const createPhotos = (photo) => {
   photos.appendChild(photosFragment);
 };
 
+const mocPhotos = `photos/${getRandomPositiveInteger(1, 25)}.jpg`;
 
+createPhotos(mocPhotos);
