@@ -17,11 +17,11 @@ const createComment = () => {
 //Создает данные для фотографии
 const createPhoto = () => {
   return ({
-  id: getRandomPositiveInteger(1, 25),
-  url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
-  description: DESCS[getRandomPositiveInteger(0, DESCS.length - 1)],
-  likes: getRandomPositiveInteger(15, 200),
-  comments: Array.from({length: getRandomPositiveInteger(1, 50)}, createComment)
+    id: getRandomPositiveInteger(1, 25),
+    url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
+    description: DESCS[getRandomPositiveInteger(0, DESCS.length - 1)],
+    likes: getRandomPositiveInteger(15, 200),
+    comments: Array.from({length: getRandomPositiveInteger(1, 50)}, createComment)
   });
 };
 
