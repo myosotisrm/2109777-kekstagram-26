@@ -4,10 +4,13 @@
 import { NAMES, DESCS, MESSAGES } from './moc-d';
 import { getRandomPositiveInteger } from './util';
 
+const count = 0;
+
 //Создает комментарий для фотографии
 const createComment = () => {
+  count++;
   return {
-    id: commentId,
+    id: count,
     avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
     message: MESSAGES[getRandomPositiveInteger(0, MESSAGES.length - 1)],
     name: NAMES[getRandomPositiveInteger(0, NAMES.length - 1)],
@@ -16,12 +19,13 @@ const createComment = () => {
 
 //Создает данные для фотографии
 const createPhoto = () => {
+  count++;
   return {
-    id: getRandomPositiveInteger(1, 25),
-    url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
-    description: DESCS[getRandomPositiveInteger(0, DESCS.length - 1)],
-    likes: getRandomPositiveInteger(15, 200),
-    comments: Array.from({length: getRandomPositiveInteger(1, 50)}, createComment),
+  id: getRandomPositiveInteger(1, 25),
+  url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
+  description: DESCS[getRandomPositiveInteger(0, DESCS.length - 1)],
+  likes: getRandomPositiveInteger(15, 200),
+  comments: Array.from({length: getRandomPositiveInteger(1, 50)}, createComment)
   };
 };
 
