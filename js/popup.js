@@ -32,23 +32,23 @@ const createBigPicture = (picture) => {
 //Функция закрытия окна
 const closePopup = () => {
   bigPicture.classList.add('hidden');
-    document.body.classList.remove('modal-open');
-  };
+  document.body.classList.remove('modal-open');
+};
+
+//Прячем блоки счётчика комментариев и загрузки новых комментариев, отключаем прокрутку в контейнере
+const temporaryFunction = () => {
+  bigPicture.querySelector('.social__comment-count').classList.add('hidden');
+  bigPicture.querySelector('.comments-loader').classList.add('hidden');
+  document.body.classList.add('modal-open');
+};
 
 //Функция открывает фотографию
 const openBigPicture = (picture) => {
   bigPicture.classList.remove('hidden');
   bigPicture.querySelector('.big-picture__cancel').addEventListener('click', () => { closePopup(); });
-  document.addEventListener('keydown', () => { closePopup() });
+  document.addEventListener('keydown', () => { closePopup(); });
   createBigPicture(picture);
   temporaryFunction();
-};
-
-//Прячем блоки счётчика комментариев и загрузки новых комментариев, отключаем прокрутку в контейнере
-const temporaryFunction = () => {
-bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-bigPicture.querySelector('.comments-loader').classList.add('hidden');
-document.body.classList.add('modal-open')
 };
 
 export { openBigPicture }
