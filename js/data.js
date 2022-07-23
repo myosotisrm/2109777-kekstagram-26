@@ -22,7 +22,7 @@ const createComment = () => {
 const createPhoto = () => {
   photoCount++;
   return {
-    id: getRandomPositiveInteger(1, 25),
+    id: photoCount,
     url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
     description: DESCS[getRandomPositiveInteger(0, DESCS.length - 1)],
     likes: getRandomPositiveInteger(15, 200),
