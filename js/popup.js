@@ -7,15 +7,15 @@ const bigPicture = document.querySelector('.big-picture');
 const commentsFragment = document.createDocumentFragment();
 
 //Создаем комментарии под открываемую фотографию
-const getCommentsBigPicture = (picture.comments) => {
-  picture.comments.forEach((comment) => {
+const getCommentsBigPicture = function (picCom) {
+  picCom.forEach((comment) => {
     const commentOrigin = document.querySelector('.social__comment');
     commentOrigin.cloneNode(true);
     commentOrigin.querySelector('.social__picture').src = comment.avatar;
     commentOrigin.querySelector('.social__picture').alt = comment.name;
     commentOrigin.querySelector('.social__text').textContent = comment.message;
     commentsFragment.append(commentOrigin);
-  })
+  });
 };
 
 //Создаем данные для открываемой фотографии
@@ -24,7 +24,8 @@ const createBigPicture = (picture) => {
   bigPicture.querySelector('.likes-count').textContent = picture.likes;
   bigPicture.querySelector('.comments-count').textContent = picture.comments.length;
   bigPicture.querySelector('.social__comments').textContent = '';
-  bigPicture.querySelector('.social__comments').append = getCommentsBigPicture(picture.comments);
+  const picCom = picture.comments;
+  bigPicture.querySelector('.social__comments').append = getCommentsBigPicture(picCom);
   bigPicture.querySelector('.social__caption').append = picture.description;
 };
 

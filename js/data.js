@@ -19,7 +19,6 @@ const createComment = () => {
 
 //Создает данные для фотографии
 const createPhoto = () => {
-  count++;
   return {
   id: getRandomPositiveInteger(1, 25),
   url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
