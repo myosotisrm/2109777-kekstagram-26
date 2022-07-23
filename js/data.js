@@ -1,22 +1,21 @@
 
-// Создаёт данные для страницы
+//Модуль создает данные для страницы
 
 import { NAMES, DESCS, MESSAGES } from './moc-d';
 import { getRandomPositiveInteger } from './util';
 
-const commentIds = [];
-
-const createPost = () => {
-  const createComment = () => {
-    const commentId = commentIds.length + 1;
-    commentIds.push(1);
-    return {
-      id: commentId,
-      avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
-      message: MESSAGES[getRandomPositiveInteger(0, MESSAGES.length - 1)],
-      name: NAMES[getRandomPositiveInteger(0, NAMES.length - 1)],
-    };
+//Создает комментарий для фотографии
+const createComment = () => {
+  return {
+    id: commentId,
+    avatar: `img/avatar-${getRandomPositiveInteger(1, 6)}.svg`,
+    message: MESSAGES[getRandomPositiveInteger(0, MESSAGES.length - 1)],
+    name: NAMES[getRandomPositiveInteger(0, NAMES.length - 1)],
   };
+};
+
+//Создает данные для фотографии
+const createPhoto = () => {
   return {
     id: getRandomPositiveInteger(1, 25),
     url: `photos/${getRandomPositiveInteger(1, 25)}.jpg`,
@@ -26,4 +25,13 @@ const createPost = () => {
   };
 };
 
-export {createPost};
+//Создает посты с фотографиями и комментариями
+const createPost = () => {
+  createComment ();
+  createPhoto ();
+};
+
+//Формируем массив из фото
+const photosLibrary = Array.from({length: 25}, createPhoto);
+
+export {createPost, photosLibrary};
