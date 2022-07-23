@@ -51,4 +51,4 @@ const openBigPicture = (picture) => {
   temporaryFunction();
 };
 
-export { openBigPicture }
+export { openBigPicture };
